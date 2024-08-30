@@ -19,125 +19,6 @@
     <link rel="stylesheet" href="css/style.css">
 
     <style>
-      /*======================================
-      //--//-->   ABOUT
-      ======================================*/
-
-      .about-mf .box-shadow-full {
-        padding-top: 4rem;
-        padding-bottom: 4rem;
-      }
-
-      .about-mf .about-img {
-        margin-bottom: 2rem;
-      }
-
-      .about-mf .about-img img {
-        margin-left: 10px;
-      }
-
-      .skill-mf .progress {
-        margin: .5rem 0 1.2rem 0;
-        border-radius: 0;
-        height: .7rem;
-      }
-
-      .skill-mf .progress .progress-bar {
-        height: .7rem;
-        background-color: #ffbd39;
-      }
-
-      /* Animation styles */
-      #typing-animation {
-        position: relative;
-        font-size: 30px;
-        font-weight: bold;
-        color: rgb(255, 255, 255);
-        overflow: hidden;
-        white-space: nowrap;
-        animation: typing 3s steps(20, end) infinite;
-      }
-
-      #typing-animation:before {
-        content: "";
-        top: 0;
-        left: 0;
-        width: 0;
-        height: 100%;
-        background-color: #ccc;
-        animation: typing-cursor 0.5s ease-in-out infinite;
-      }
-
-      @keyframes typing {
-        from {
-          width: 0;
-        }
-        to {
-          width: 100%;
-        }
-      }
-
-      @keyframes typing-cursor {
-        from {
-          width: 5px;
-        }
-        to {
-          width: 0;
-        }
-      }
-
-      /* project image zoom effect */
-      .zoom-effect {
-        overflow: hidden;
-        transition: transform 0.3s ease-out;
-      }
-
-      .zoom-effect:hover {
-        transform: scale(1.1);
-      }
-
-      /* Project display styles */
-      .blog-entry {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        width: 100%;
-        margin-bottom: 30px;
-      }
-
-      .block-20 {
-        position: relative;
-        display: block;
-        width: 100%;
-        padding-top: 56.25%; /* Maintains a 16:9 aspect ratio */
-        background-size: contain; /* Ensures the full image is visible */
-        background-repeat: no-repeat;
-        background-position: center center;
-      }
-
-      .blog-entry .text {
-        background: #fff;
-        padding: 20px;
-        border: 1px solid #e8e8e8;
-        border-radius: 5px;
-        margin-top: -10px;
-      }
-
-      .blog-entry .heading a {
-        color: #000;
-        font-size: 1.5rem;
-        font-weight: 600;
-        text-transform: none;
-      }
-
-      .blog-entry .zoom-effect {
-        transition: transform 0.5s ease;
-      }
-
-      .blog-entry .zoom-effect:hover {
-        transform: scale(1.05);
-      }
-
       .projects-grid {
         display: grid;
         grid-template-columns: repeat(2, 1fr); /* 2 columns grid */
@@ -146,14 +27,11 @@
       }
 
       .project-box {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
         background-color: #fff;
         border: 1px solid #e8e8e8;
         border-radius: 8px;
-        padding: 20px;
+        overflow: hidden;
+        text-align: center;
         transition: transform 0.3s ease;
       }
 
@@ -163,18 +41,26 @@
 
       .project-image {
         width: 100%;
-        padding-top: 100%; /* Ensures the image container is square */
+        height: 0;
+        padding-bottom: 100%; /* This creates a square aspect ratio */
         background-size: cover;
         background-position: center;
-        border-radius: 8px 8px 0 0;
       }
 
       .project-description {
-        margin-top: 15px;
+        padding: 15px;
+      }
+
+      .project-description h3 {
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-bottom: 10px;
+      }
+
+      .project-description p {
         font-size: 14px;
         color: #555;
       }
-
     </style>
   </head>
   <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
@@ -318,7 +204,7 @@
                     <li class="d-flex"><span>Education:</span> <span>Masters in Data Analytics</span></li>
                     <li class="d-flex"><span>Language:</span> <span>English, Hindi, Telugu</span></li>
                     <li class="d-flex"><span>BI Tools:</span> <span>Microsoft Power BI & Tableau</span></li>
-                    <li class="d-flex"><span>Other Skills:</span> <span>Python, TensorFlow, Git, MLOps, NLP,Computer Vision</span></li>
+                    <li class="d-flex"><span>Other Skills:</span> <span>Python, TensorFlow, Git, MLOps, NLP, Computer Vision</span></li>
                     <li class="d-flex"><span>Interest:</span> <span>Volley Ball</span></li>
                   </ul>
                 </div>
@@ -341,64 +227,70 @@
 
     <section class="ftco-section" id="project-section">
       <div class="container">
-          <div class="row justify-content-center mb-5 pb-5">
-              <div class="col-md-7 heading-section text-center ftco-animate">
-                  <h1 class="big big-2">Projects</h1>
-                  <h2 class="mb-4">Projects</h2>
-                  <p>Below are my academic and personal projects ML/DL/NLP</p>
-              </div>
+        <div class="row justify-content-center mb-5 pb-5">
+          <div class="col-md-7 heading-section text-center ftco-animate">
+            <h1 class="big big-2">Projects</h1>
+            <h2 class="mb-4">Projects</h2>
+            <p>Below are my academic and personal projects ML/DL/NLP</p>
           </div>
-  
-          <div class="projects-grid">
-              <div class="project-box">
-                  <div class="project-image" style="background-image: url('images/proj_4.jpg');"></div>
-                  <div class="project-description">
-                      <h3><a href="https://github.com/venkateshneu/CAPSTONE---PROJECT-">Recommender System for Housing</a></h3>
-                      <p>Developed a house price prediction system using XGBoost, achieving an R² score of 0.89.</p>
-                  </div>
-              </div>
-  
-              <div class="project-box">
-                  <div class="project-image" style="background-image: url('images/Emotion_detector.jpg');"></div>
-                  <div class="project-description">
-                      <h3><a href="https://github.com/venkateshneu/EMOTION-DETECTOR-USING-CNN-AND-FER-2013-DATA">Emotion Detector Using CNN</a></h3>
-                      <p>Built a deep learning model to detect emotions from the FER-2013 dataset.</p>
-                  </div>
-              </div>
-  
-              <div class="project-box">
-                  <div class="project-image" style="background-image: url('images/Sentiment.jpg');"></div>
-                  <div class="project-description">
-                      <h3><a href="https://github.com/venkateshneu/TWITTER-SENTIMENT-ANALYSIS-WITH-DEMO-APP-NLP">Twitter Sentiment Analysis with Demo App</a></h3>
-                      <p>Developed a sentiment analysis model using NLP techniques, integrated into a demo app.</p>
-                  </div>
-              </div>
-  
-              <div class="project-box">
-                  <div class="project-image" style="background-image: url('images/Hate.jpg');"></div>
-                  <div class="project-description">
-                      <h3><a href="https://github.com/venkateshneu/Capstone-project-2-Hate_speech_classifier">Hate Speech Classifier</a></h3>
-                      <p>Created a deep learning model to classify text as hate speech or non-hate speech.</p>
-                  </div>
-              </div>
+        </div>
+
+        <div class="projects-grid">
+          <div class="project-box">
+            <a href="https://github.com/venkateshneu/CAPSTONE---PROJECT-" target="_blank">
+              <div class="project-image" style="background-image: url('images/proj_4.jpg');"></div>
+            </a>
+            <div class="project-description">
+              <h3><a href="https://github.com/venkateshneu/CAPSTONE---PROJECT-" target="_blank">Recommender System for Housing</a></h3>
+              <p>Developed a house price prediction system using XGBoost, achieving an R² score of 0.89.</p>
+            </div>
           </div>
-      </div>
-  </section>
-  
- 
-      <div class="ftco-section ftco-hireme img margin-top" style="background-image: url(images/bg_1.jpg)">
-        <div class="row justify-content-center">
-          <div class="col-md-7 ftco-animate text-center">
-            <h2>More projects on<span> Github  </span> </h2>
-            <div class="heading">
-              <h4> I love to solve business problems & uncover hidden data stories </h4>
-              <br>
-              <p><a href="https://github.com/venkateshneu" class="btn btn-primary py-3 px-5">GitHub</a></p>
+
+          <div class="project-box">
+            <a href="https://github.com/venkateshneu/EMOTION-DETECTOR-USING-CNN-AND-FER-2013-DATA" target="_blank">
+              <div class="project-image" style="background-image: url('images/Emotion_detector.jpg');"></div>
+            </a>
+            <div class="project-description">
+              <h3><a href="https://github.com/venkateshneu/EMOTION-DETECTOR-USING-CNN-AND-FER-2013-DATA" target="_blank">Emotion Detector Using CNN</a></h3>
+              <p>Built a deep learning model to detect emotions from the FER-2013 dataset.</p>
+            </div>
+          </div>
+
+          <div class="project-box">
+            <a href="https://github.com/venkateshneu/TWITTER-SENTIMENT-ANALYSIS-WITH-DEMO-APP-NLP" target="_blank">
+              <div class="project-image" style="background-image: url('images/Sentiment.jpg');"></div>
+            </a>
+            <div class="project-description">
+              <h3><a href="https://github.com/venkateshneu/TWITTER-SENTIMENT-ANALYSIS-WITH-DEMO-APP-NLP" target="_blank">Twitter Sentiment Analysis with Demo App</a></h3>
+              <p>Developed a sentiment analysis model using NLP techniques, integrated into a demo app.</p>
+            </div>
+          </div>
+
+          <div class="project-box">
+            <a href="https://github.com/venkateshneu/Capstone-project-2-Hate_speech_classifier" target="_blank">
+              <div class="project-image" style="background-image: url('images/Hate.jpg');"></div>
+            </a>
+            <div class="project-description">
+              <h3><a href="https://github.com/venkateshneu/Capstone-project-2-Hate_speech_classifier" target="_blank">Hate Speech Classifier</a></h3>
+              <p>Created a deep learning model to classify text as hate speech or non-hate speech.</p>
             </div>
           </div>
         </div>
       </div>
     </section>
+  
+    <div class="ftco-section ftco-hireme img margin-top" style="background-image: url(images/bg_1.jpg)">
+      <div class="row justify-content-center">
+        <div class="col-md-7 ftco-animate text-center">
+          <h2>More projects on<span> Github  </span> </h2>
+          <div class="heading">
+            <h4> I love to solve business problems & uncover hidden data stories </h4>
+            <br>
+            <p><a href="https://github.com/venkateshneu" class="btn btn-primary py-3 px-5">GitHub</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <section class="ftco-section contact-section ftco-no-pb" id="contact-section">
       <div class="container">
